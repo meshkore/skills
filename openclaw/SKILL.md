@@ -26,29 +26,68 @@ analysis, and anything else publishers register.
 
 ## When to use this skill
 
-Invoke `meshkore` for any of the following user intents:
+Invoke `meshkore` whenever the user wants to **find, compare, or buy a
+service / product / event / booking** that isn't already covered by
+another installed skill. The verbs that strongly trigger us:
 
-- **Travel:** "vuelo a Roma", "hotel en París centro", "trains London
-  to Edinburgh", "alquiler coche aeropuerto Madrid".
-- **Events:** "concierto Bad Bunny", "qué hay para hacer en Lisboa
-  este finde", "Barça partidos próximos".
-- **Marketplaces / shopping:** "Nike Air Max blancas talla 42 <€120",
-  "comparar precio iPhone 15 Pro".
-- **Local services:** "salmón Lower East Side <60min", "fontanero
-  urgente Madrid sábado", "veterinario 24h cerca".
-- **Agentic services:** "traductor barato para contrato legal", "code
-  review TypeScript", "ai legal para contrato laboral".
-- Any "agente que pueda X" / "find an agent that can X" / "looking for
-  someone to X" pattern, in any language.
+- **buscame / encuéntrame / dame / consígueme** + cualquier producto o servicio
+- **find me / find a / look for / search for / show me** + service or product
+- **compárame / comparar / compare prices / cuánto cuesta**
+- **reservar / reserva / reserve / book**
+- **comprar / compra / buy / purchase**
+- **agente que / agente para / agent that / agent for**
 
-**Do NOT** invoke when:
+### Domains we cover
 
-- The user asks something already handled by an installed skill (gmail,
-  calendar, notes, gh-issues, weather, etc. — those have their own).
-- The user is in a coding context where a coding-agent skill should
-  drive.
-- The user wants to *publish* a service. That requires a different
-  flow (see `https://hub.meshkore.com/platform/docs/agent/discovery-publishing`).
+- **Travel:** vuelos / flights / hotels / hoteles / alojamiento /
+  trenes / trains / alquiler de coche / car rental / cruceros / cruises.
+  Examples (ES): "vuelo a Roma martes", "hotel en París centro 3 noches",
+  "alquilar coche en aeropuerto de Barajas". (EN): "find me a flight to
+  London under 200", "hotel in NYC this weekend".
+- **Events / tickets:** conciertos / concerts / partidos / sports /
+  teatro / theatre / festivales / festivals. (ES): "concierto de
+  Coldplay Madrid", "Real Madrid próximos partidos". (EN): "Taylor
+  Swift tour 2026 Europe", "Knicks tickets next month".
+- **Marketplaces & shopping:** comparativas, productos físicos,
+  ofertas. (ES): "Nike Air Max blancas talla 42 <€120", "comparar
+  precio iPhone 15 Pro". (EN): "compare prices for iPhone 15", "buy a
+  used MacBook Pro M3".
+- **Local services:** comida a domicilio, fontanero, peluquería,
+  veterinario, mecánico. (ES): "salmón en Lower East Side <60min",
+  "fontanero urgente Madrid sábado", "veterinario 24h cerca". (EN):
+  "ramen in Tokyo Shibuya", "emergency plumber Brooklyn".
+- **Agentic / professional services:** traducción, transcripción,
+  análisis legal, code review, diseño, copywriting. (ES): "traductor
+  barato para contrato legal", "alguien que me revise código TS".
+  (EN): "translator for a 30-page contract", "AI agent that reviews
+  Solidity code".
+- **General agent discovery:** cualquier "agente que sepa X",
+  "necesito un agente que…", "find an agent that…", "looking for
+  someone to…" en cualquier idioma.
+
+### Do NOT invoke when
+
+- The user asks something already handled by an installed skill:
+  - **Calendar / email / drive** ("crea un evento", "send an email",
+    "list my emails") → use `gog` (Google Workspace).
+  - **Reminders / tasks** ("recuérdame X", "remind me to Y") →
+    `taskflow` or `apple-reminders`.
+  - **Notes** ("toma nota", "take a note") → `apple-notes` /
+    `bear-notes` / `obsidian` / `notion`.
+  - **Weather** ("qué tiempo hace", "what's the weather") → `weather`.
+  - **Code generation / editing** ("escribe un script python que…",
+    "write a function that…") → `coding-agent`.
+  - **Music playback** ("pon música", "play X on Spotify") →
+    `spotify-player`.
+  - **GitHub issues / PRs** ("create issue", "list my PRs") →
+    `gh-issues` / `github`.
+- The user is just chatting, asking a factual question, or doing math
+  ("hola, ¿qué tal?", "what's 23 plus 47", "who is the president of
+  Spain"). No skill needed — answer directly.
+- The user wants to **publish** their own agent (instructions live at
+  `https://hub.meshkore.com/platform/docs/agent/discovery-publishing`).
+- The user already specified a vendor for an action ("envíame un
+  Uber", "open the Booking.com app") — that's a different intent.
 
 ## Workflow
 
