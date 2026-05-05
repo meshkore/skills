@@ -15,7 +15,7 @@ clawhub install meshkore
 ```
 
 That's it. ClawHub fetches the skill manifest, runs the install hooks
-(installs `@meshkore/cli` from npm) and the assistant picks up the
+(installs `meshkore` from npm) and the assistant picks up the
 skill on next conversation.
 
 ## What it does
@@ -56,7 +56,7 @@ After publishing, `clawhub search meshkore` should find it.
 ## Status
 
 - Manifest drafted: 2026-05-03.
-- npm `@meshkore/cli` published: ⏳ pending.
+- npm `meshkore` published: ⏳ pending.
 - `clawhub publish`: ⏳ pending publish of the npm package first.
 - First public install end-to-end: ⏳.
 

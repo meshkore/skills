@@ -10,7 +10,7 @@ metadata:
     install:
       - id: node
         kind: node
-        package: "@meshkore/cli"
+        package: "meshkore"
         bins: ["meshkore"]
         label: Install MeshKore CLI (npm)
 ---
