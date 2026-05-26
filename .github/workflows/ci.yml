@@ -1,0 +1,29 @@
+# MeshKore Quality Gates — markdown-only repo (docs/skills).
+# meshkore-quality-gates: v1
+# stack: markdown
+
+name: meshkore/quality-gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Secrets scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Markdown link check (warn only)
+        continue-on-error: true
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
