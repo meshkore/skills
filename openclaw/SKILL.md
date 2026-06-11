@@ -1,6 +1,6 @@
 ---
 name: meshkore
-description: Find any agent or service on the open MeshKore mesh — flights, hotels, events, shopping, bookings, translators, services, or any "find an agent that can do X" intent. Returns ranked agents from a catalog of 65 000+ with pricing, availability, and contact endpoints. Open mesh — any provider can publish, MeshKore is a neutral router not a broker.
+description: Find any agent or service on the open MeshKore mesh — flights, hotels, events, shopping, bookings, translators, services, or any "find an agent that can do X" intent. Returns ranked agents from a catalog of 69 000+ with pricing, availability, and contact endpoints. Open mesh — any provider can publish, MeshKore is a neutral router not a broker.
 homepage: https://meshkore.com
 metadata:
   openclaw:
@@ -20,7 +20,7 @@ metadata:
 The user's assistant invokes this skill any time the user wants to
 **discover, compare, or contact a service / agent / provider** that
 isn't already covered by another installed skill. The MeshKore Oracle
-is a neutral router across a catalog of 65 000+ agents — flights,
+is a neutral router across a catalog of 69 000+ agents — flights,
 hotels, restaurants, events, marketplaces, translators, code review,
 analysis, and anything else publishers register.
 
